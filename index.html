@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Scavenger Hunt - Shake n' Bake</title>
+  <meta name="keywords" content="Defined Logic LLC, Scavenger Hunt, Shake n' Bake">
+
+  <!--
+  Common Head Elems
+  -->
+  <meta charset="UTF-8">
+  <meta name="author" content="Jing Chai">
+  <!--CSS Reset-->
+  <link rel="stylesheet" href="../common/css/reset.css">
+  <!--Google Analytics tag-->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-42709354-2', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+  <!--
+  Bootstrap
+  -->
+  <!--jquery dependency-->
+  <script src="https://code.jquery.com/jquery-2.2.2.min.js"   integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="http://csshake.surge.sh/csshake.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Bubbler+One' rel='stylesheet' type='text/css'>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js"></script>
+</head>
+<body>
+<div class="container-wrap">
+<header>
+<div class="shake shake-slow">Shake n' Bake</header>
+</header>
+
+<div class="container">
+<div class="col-sm-1">
+    <div class="back" data-bind="click: prev, visible: i() > 0">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+    </div>
+</div>
+<div class="col-sm-10">
+    <div class="content-container">
+        <div class="details">
+            <div class="no">
+                <span data-bind="text: no()"></span>
+            </div>
+            <div class="description">
+                <span data-bind="text: descript(), style: { textDecoration: done() ? 'none' : 'line-through'}"></span> <span class="green shake shake-crazy glyphicon glyphicon-ok" data-bind="visible: done()"></span>
+            </div>
+            <div class="bonus">
+                <span data-bind="text: bonus(), style: { textDecoration: hasBonus() ? 'none' : 'line-through'}"></span> <span class="green shake shake-crazy glyphicon glyphicon-ok" data-bind="visible: hasBonus()"></span>
+            </div>
+        </div>
+        <div class="pic">
+            <div class="img" data-bind="style: { backgroundImage: 'url(\'' + img() + '\')' }">
+                <img src="http://www.cliparthut.com/clip-arts/683/transparent-red-x-clip-art-683106.png" alt="" class="redx" data-bind="visible: !done()">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-sm-1">
+    <div class="next" data-bind="click: next, visible: i() < pics.length - 1">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+    </div>
+</div>
+</div>
+<footer><div class="shake shake-slow">&copy; 2015 The Shake n' Bake Club</div></footer>
+</div>
+</body>
+<script src="script.js"></script>
+</html>
